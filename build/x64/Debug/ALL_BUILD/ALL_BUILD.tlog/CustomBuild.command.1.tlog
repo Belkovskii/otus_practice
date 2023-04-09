@@ -1,0 +1,10 @@
+^C:\USERS\USER\DESKTOP\DOCS\КОНСПЕКТЫ\OTUS\НОВАЯ ПАПКА\SOURCE-12995-C44DC8\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/User/Desktop/docs/Конспекты/Otus/Новая папка/source-12995-c44dc8" "-BC:/Users/User/Desktop/docs/Конспекты/Otus/Новая папка/source-12995-c44dc8/build" --check-stamp-file "C:/Users/User/Desktop/docs/Конспекты/Otus/Новая папка/source-12995-c44dc8/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
