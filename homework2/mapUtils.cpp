@@ -1,5 +1,6 @@
 #include "mapUtils.h"
 #include "stringUtils.h"
+#include <string>
 #define DELIMITER "<->"
 
 void addRecordToMap(std::map<int, std::string> &recordsMap, std::string name, const int number)
@@ -11,11 +12,23 @@ void addRecordToMap(std::map<int, std::string> &recordsMap, std::string name, co
         currentNumbersPerson = (currentNumbersPerson + DELIMITER + name);
 }
 
+void readFileIntoMap(std::map<int, std::string> &recordsMap, std::fstream &i_file) {
+    std::string line;
+    while (std::getline(i_file, line)) {
+        std::list<std::string> nameAndPoints = splitString(line, " - ");
+        std::string playerName = nameAndPoints.front();
+        int numberOfPoints = stringToIntWithValidation(nameAndPoints.back());
+        std::cout << numberOfPoints << std::endl;
+        addRecordToMap(recordsMap, playerName, numberOfPoints);
+    }
+}
+
 
 void writeMapToFile(std::map<int, std::string> recordsMap, std::fstream &i_file)
 {
     if (i_file.is_open())
     {
+        readFileIntoMap(recordsMap, i_file);
         std::map<int, std::string>::iterator it = recordsMap.begin();
         while (it != recordsMap.end())
         {

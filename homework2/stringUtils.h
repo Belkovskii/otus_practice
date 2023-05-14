@@ -7,7 +7,7 @@
 #include <list>
 
 
-std::string getEscValidatedInputString(bool &doExitGame);
+std::string getValidatedInputString();
 
 int stringToIntWithValidation(std::string numberString);
 

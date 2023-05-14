@@ -9,7 +9,7 @@
 #include "stringUtils.h"
 #include "mapUtils.h"
 
-const std::string enterName = "Welcome to GUESS NUMBER!!!\nTo exit press ESC any time\n Please enter your name: ";
+const std::string enterName = "Welcome to GUESS NUMBER!!!\nTo exit press Ctrl+C any time\n Please enter your name: ";
 const std::string enterNumber = "\nEnter your number: ";
 const std::string wrongRange = "\nERROR: Wrong number. Choose in range 0-100";
 const std::string chooseBiggerThan = "\nChoose something greater than ";
@@ -21,43 +21,51 @@ int getRandomNumber();
 
 int main()
 {
-    bool doExitGame = false;
-    int answerNumber = -1;
+    // prepare game data
+    int answerNumber = getRandomNumber();
     std::map<int, std::string> recordsMap;
+    int attemptCounter = 0;
+    std::string playerName;
+    bool doExitGame = false;
+    int guessNumber = -1;
+    // start game
+    std::cout << enterName;
+    std::cin >> playerName;
     while (!doExitGame)
     {
-        std::cout << enterName;
-        std::string name = getEscValidatedInputString(doExitGame);
-        int attemptCounter = 0;
-        if (!doExitGame)
-            answerNumber = getRandomNumber();
-        while (!doExitGame)
+        std::cout << enterNumber;
+        guessNumber = stringToIntWithValidation(getValidatedInputString());
+        if (guessNumber == INT32_MIN)
         {
-            std::cout << enterNumber;
-            int guessNumber = stringToIntWithValidation(getEscValidatedInputString(doExitGame));
-            if (!doExitGame)
-            {
-                attemptCounter++;
-                if (guessNumber == INT32_MIN)
-                    std::cout << notNumeric << std::endl;
-                else if (guessNumber > 100 || guessNumber < 0)
-                    std::cout << wrongRange << std::endl;
-                else if (guessNumber < answerNumber)
-                    std::cout << chooseBiggerThan << guessNumber << std::endl;
-                else if (guessNumber > answerNumber)
-                    std::cout << chooseSmallerThan << guessNumber << std::endl;
-                else
-                    std::cout << youWin << std::endl;
-            }
-            if (guessNumber == answerNumber)
-            {
-                addRecordToMap(recordsMap, name, attemptCounter);
-                break;
-            }
+            std::cout << notNumeric << std::endl;
+        }
+        else if (guessNumber > 100 || guessNumber < 0)
+        {
+            std::cout << wrongRange << std::endl;
+        }
+        else if (guessNumber < answerNumber)
+        {
+            std::cout << chooseBiggerThan << guessNumber << std::endl;
+            attemptCounter++;
+        }
+        else if (guessNumber > answerNumber)
+        {
+            std::cout << chooseSmallerThan << guessNumber << std::endl;
+            attemptCounter++;
+        }
+        else
+        {
+            std::cout << youWin << std::endl;
+            doExitGame = true;
         }
     }
-    std::fstream file{"game_records.txt", std::ios_base::in | std::ios_base::out | std::ios_base::trunc};
-    writeMapToFile(recordsMap, file);
+    // fix results in file
+    if (doExitGame && guessNumber == answerNumber)
+    {
+        addRecordToMap(recordsMap, playerName, attemptCounter);
+        std::fstream file{"game_records.txt"};
+        writeMapToFile(recordsMap, file);
+    }
     return 0;
 }
 

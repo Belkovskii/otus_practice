@@ -1,31 +1,11 @@
 #include "stringUtils.h"
-
-#define ENTER_KEY 13
-#define ESC_KEY 27
+#include <iostream>
 #define DELIMITER "<->"
 
-std::string getEscValidatedInputString(bool &doExitGame)
+std::string getValidatedInputString()
 {
-    char inputKey = ' ';
-    std::string inputString = "";
-    while (true)
-    {
-        inputKey = _getch();
-        if (inputKey == ENTER_KEY)
-        {
-            break;
-        }
-        else if (inputKey == ESC_KEY)
-        {
-            doExitGame = true;
-            break;
-        }
-        else
-        {
-            std::cout << inputKey;
-            inputString += inputKey;
-        }
-    }
+    std::string inputString;
+    std::cin >> inputString;
     return inputString;
 }
 
