@@ -16,6 +16,7 @@ const std::string chooseBiggerThan = "\nChoose something greater than ";
 const std::string chooseSmallerThan = "\nChoose something smaller than ";
 const std::string youWin = "\nYou Win!!!\n\n";
 const std::string notNumeric = "\nERROR: characters in input. Please enter numeric symbols only\n";
+const std::string filePathAndName = "game_statistics.txt";
 
 int getRandomNumber();
 
@@ -23,7 +24,7 @@ int main()
 {
     // prepare game data
     int answerNumber = getRandomNumber();
-    std::map<int, std::string> recordsMap;
+    std::multimap<int, std::string> recordsMap;
     int attemptCounter = 0;
     std::string playerName;
     bool doExitGame = false;
@@ -63,9 +64,9 @@ int main()
     if (doExitGame && guessNumber == answerNumber)
     {
         addRecordToMap(recordsMap, playerName, attemptCounter);
-        std::fstream file{"game_records.txt"};
-        writeMapToFile(recordsMap, file);
+        writeMapToFile(recordsMap, filePathAndName);
     }
+    std::cin >> answerNumber;
     return 0;
 }
 

@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\C++progs\otus_practice\otus_practice\homework2\stringUtils.cpp">
+    <ClCompile Include="C:\OTUS_PRACTICE\otus_practice\homework2\stringUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\C++progs\otus_practice\otus_practice\homework2\mapUtils.cpp">
+    <ClCompile Include="C:\OTUS_PRACTICE\otus_practice\homework2\mapUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\C++progs\otus_practice\otus_practice\homework2\game.cpp">
+    <ClCompile Include="C:\OTUS_PRACTICE\otus_practice\homework2\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\C++progs\otus_practice\otus_practice\homework2\stringUtils.h">
+    <ClInclude Include="C:\OTUS_PRACTICE\otus_practice\homework2\stringUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\C++progs\otus_practice\otus_practice\homework2\mapUtils.h">
+    <ClInclude Include="C:\OTUS_PRACTICE\otus_practice\homework2\mapUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\C++progs\otus_practice\otus_practice\homework2\CMakeLists.txt" />
+    <CustomBuild Include="C:\OTUS_PRACTICE\otus_practice\homework2\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{FF734B6F-24FA-3E16-9D9F-47D51896F14B}</UniqueIdentifier>
+      <UniqueIdentifier>{D9D9BEBF-374D-312F-A1F6-1500906DE8D3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{DAFD1B96-D04F-36AB-8331-3194DE7FE7FB}</UniqueIdentifier>
+      <UniqueIdentifier>{C08BED09-DBD5-3DE7-8200-B00E78532610}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

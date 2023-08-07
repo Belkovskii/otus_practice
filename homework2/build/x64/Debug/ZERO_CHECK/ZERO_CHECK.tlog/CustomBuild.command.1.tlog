@@ -1,6 +1,6 @@
-^C:\C++PROGS\OTUS_PRACTICE\OTUS_PRACTICE\HOMEWORK2\BUILD\CMAKEFILES\EA8D53164A6297792AFF61B4CC5D063E\GENERATE.STAMP.RULE
+^C:\OTUS_PRACTICE\OTUS_PRACTICE\HOMEWORK2\BUILD\CMAKEFILES\256F6A18C8561D483CBB7E043329A603\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/C++progs/otus_practice/otus_practice/homework2 -BC:/C++progs/otus_practice/otus_practice/homework2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/C++progs/otus_practice/otus_practice/homework2/build/02.game.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/OTUS_PRACTICE/otus_practice/homework2 -BC:/OTUS_PRACTICE/otus_practice/homework2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/OTUS_PRACTICE/otus_practice/homework2/build/02.game.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

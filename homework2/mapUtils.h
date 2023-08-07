@@ -8,8 +8,8 @@
 #include <list>
 #include "stringUtils.h"
 
-void addRecordToMap(std::map<int, std::string> &recordsMap, std::string name, const int number);
-void writeMapToFile(std::map<int, std::string> recordsMap, std::fstream &i_file);
-void readFileIntoMap(std::map<int, std::string> &recordsMap, std::fstream &i_file);
+void addRecordToMap(std::multimap<int, std::string> &recordsMap, std::string name, const int number);
+void writeMapToFile(std::multimap<int, std::string> recordsMap, std::string filePathAndName);
+void readFileIntoMap(std::multimap<int, std::string> &recordsMap, std::string filePathAndName);
 
 #endif
