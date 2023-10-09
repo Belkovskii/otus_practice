@@ -1,9 +1,11 @@
 #include <iostream>
 #include "LinkedList\LinkedList.h"
 #include "DynamicArray\DynamicArray.h"
+#include <gtest/gtest.h>
 
 int main() 
 {
+    
     
     LinkedList<int> ll;
     for (int i=0; i<10; i++)
@@ -11,6 +13,9 @@ int main()
         ll.push_back(i);
     }
     std::cout << ll << std::endl;
+    TEST(TestCheckLinkedList, checkSize) {
+        ASSERT_TRUE(ll.size() == 10);
+    }
     //ожидаемый результат: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
     std::cout << ll.size() << "\n\n";
