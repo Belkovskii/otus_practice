@@ -1,0 +1,10 @@
+^C:\EDU\OTUS_CPP\04.HOMEWORK\BUILD\CMAKEFILES\7B8D859DD8C17B20E587E6908A75CA87\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/edu/otus_cpp/04.homework -BC:/edu/otus_cpp/04.homework/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/edu/otus_cpp/04.homework/build/physics.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
