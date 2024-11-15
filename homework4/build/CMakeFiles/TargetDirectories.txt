@@ -1,3 +1,0 @@
-C:/edu/otus_cpp/04.homework/build/CMakeFiles/physics.dir
-C:/edu/otus_cpp/04.homework/build/CMakeFiles/ALL_BUILD.dir
-C:/edu/otus_cpp/04.homework/build/CMakeFiles/ZERO_CHECK.dir
