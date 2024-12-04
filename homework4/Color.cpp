@@ -15,7 +15,7 @@ Color::Color(int r, int g, int b) {
     if (!validateColor(r) || !validateColor(g) || !validateColor(b)) {
         throw std::runtime_error("Величина параметра должна быть в диапазоне 0 - 255");
     }
-    Color::Color(
+    Color(
         (static_cast<double>(r))/255,
         (static_cast<double>(g))/255,
         (static_cast<double>(b))/255
