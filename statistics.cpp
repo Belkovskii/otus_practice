@@ -123,7 +123,7 @@ protected:
 	int percent;
 	double calculatePercentile() const {
 		std::sort(units.begin(), units.end());
-		double pos = (units.size() + 1) * 0.9;
+		double pos = (units.size() + 1) * (static_cast<double>(percent)/100);		
 		bool hasFraction = fmod(pos, 1.0) != 0.0;
 		int lowerPosition = static_cast<int>(std::floor(pos));
 		if (!hasFraction && lowerPosition < units.size()) {
