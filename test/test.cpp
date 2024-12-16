@@ -2,7 +2,7 @@
 #include "../DynamicArray/DynamicArray.h"
 #include "../LinkedList/LinkedList.h"
 
-TEST(LinkedList, TestSize) {
+TEST(LinkedListTest, TestSize) {
     //Arrange
     LinkedList<int> ints;
     int expected_size= 11;
