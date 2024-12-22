@@ -7,13 +7,8 @@ add_executable(
     test/test.cpp
 )
 
-find_package(GTest)
 
-if(GTEST_FOUND)
-    message(STATUS "GTest найден: ${GTEST_LIBRARIES}")
-else()
-    message(FATAL_ERROR "GTest не найден!")
-endif()
+find_package(GTest)
 
 target_link_libraries(test_assertions 
     GTest::gtest

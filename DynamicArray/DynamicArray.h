@@ -39,23 +39,16 @@ public:
         }
     };
 
-    DynamicArray(const DynamicArray& other)
-    {
-        float otherReserveCoef = other.reserveCoef;
-        int otherArraySize = other.size();
-        int newAllocatedMemorySize = otherArraySize * otherReserveCoef;
-        T* tempArrayPtr = (T*) malloc(sizeof(T) * newAllocatedMemorySize);
-        if (tempArrayPtr != 0) 
-        {
-            for (int i = 0; i < otherArraySize-1; i++)
-            {
-                new(tempArrayPtr + i) T(other.firstElementPtr[i]);
-            }
-            delete[] firstElementPtr;
-            firstElementPtr = tempArrayPtr;
-            sizeOfAllocatedMemory = newAllocatedMemorySize;
-            sizeOfArray = otherArraySize;
-            reserveCoef = otherReserveCoef;
+    DynamicArray(const DynamicArray<T>& other) :
+        sizeOfAllocatedMemory(other.sizeOfAllocatedMemory),
+        sizeOfArray(other.sizeOfArray),
+        reserveCoef(other.reserveCoef)
+    {   
+        firstElementPtr = new T[sizeOfAllocatedMemory];
+        if (firstElementPtr != nullptr) {
+            for (int i = 0; i < sizeOfArray; i++) {
+                new (firstElementPtr + i) T(other.firstElementPtr[i]);             
+            }          
         }
     };
 
@@ -161,7 +154,7 @@ public:
         if (availableMemorySize >= neededMemory)
         {
             new (firstElementPtr + sizeOfArray) T(newValue);
-            ++sizeOfArray;
+            ++sizeOfArray;            
         }
         else 
         {
@@ -174,7 +167,7 @@ public:
                 {
                     new(tempArrayPtr + i) T(firstElementPtr[i]);
                 }
-                new(tempArrayPtr + (sizeOfArray - 1)) T(newValue);
+                new(tempArrayPtr + (sizeOfArray - 1)) T(newValue);                
                 delete[] firstElementPtr;
                 firstElementPtr = tempArrayPtr;
                 sizeOfAllocatedMemory = newAllocatedMemorySize;

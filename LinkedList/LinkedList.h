@@ -11,15 +11,11 @@ class Node
 
 public:
     Node(const T &v)
-    {
-        value = *(new T(v));
+    {        
+        value = v;
         next_ptr = nullptr;
     }
-    Node(const Node &other)
-    {
-        value = other.value;
-        next_ptr = nullptr;
-    }
+    Node(const Node &other) = delete;
     T &getValue()
     {
         return value;
@@ -202,24 +198,22 @@ public:
 
     void erase(int index)
     {
-        if (index < 0 || index > sizeOfList)
+        if (index < 0 || index >= sizeOfList)
         {
             std::cout << "Wrong index. Must be in range [0 ; " << size() - 1 << "]" << std::endl;
             exit(1);
         }
-        current_iter_ptr = first_ptr;
-        for (int i=0; i<index-1; i++)
-        {
-            current_iter_ptr = current_iter_ptr->next_ptr;
-        }
-        Node<T>* nodeToDelete = current_iter_ptr->next_ptr;
-        if (nodeToDelete != last_ptr)
-        {
-            current_iter_ptr->next_ptr = nodeToDelete->next_ptr;
-        }
-        else 
-        {
-            current_iter_ptr->next_ptr = nullptr;
+        Node<T>* nodeToDelete = nullptr;
+        if (index == 0) {
+            nodeToDelete = first_ptr;
+            first_ptr = nodeToDelete->next_ptr;
+        } else {
+            Node<T>* current_ptr = first_ptr;
+            for (int i=0; i<index-1; i++) {
+                current_ptr = current_ptr->next_ptr;
+            }
+            nodeToDelete = current_ptr->next_ptr;
+            current_ptr->next_ptr = nodeToDelete->next_ptr;
         }
         delete nodeToDelete;
         sizeOfList--;
